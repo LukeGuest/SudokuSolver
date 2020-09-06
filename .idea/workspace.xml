@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="989bfb61-5e60-4004-9a1c-36a8b55bb136" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gJZxrUxBCQLEWAmISmxF8zmrVc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="ignore.virus.scanning.warn.message" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Sudoku Project" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Sudoku" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="989bfb61-5e60-4004-9a1c-36a8b55bb136" name="Default Changelist" comment="" />
+      <created>1597834904698</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597834904698</updated>
+      <workItem from="1597834917072" duration="5570000" />
+      <workItem from="1597843910967" duration="4216000" />
+      <workItem from="1597917718278" duration="5711000" />
+      <workItem from="1598007022845" duration="3189000" />
+      <workItem from="1598121032077" duration="7000" />
+      <workItem from="1598178188892" duration="3234000" />
+      <workItem from="1598272080730" duration="4184000" />
+      <workItem from="1598338561989" duration="18487000" />
+      <workItem from="1598438677605" duration="4077000" />
+      <workItem from="1598523059353" duration="3028000" />
+      <workItem from="1598530011234" duration="3378000" />
+      <workItem from="1598607718313" duration="4397000" />
+      <workItem from="1598813308296" duration="856000" />
+      <workItem from="1598862164073" duration="6891000" />
+      <workItem from="1598871124696" duration="2075000" />
+      <workItem from="1598878474295" duration="10374000" />
+      <workItem from="1598962991202" duration="4184000" />
+      <workItem from="1599042998750" duration="996000" />
+      <workItem from="1599126656781" duration="13521000" />
+      <workItem from="1599218965403" duration="8550000" />
+      <workItem from="1599310335664" duration="3351000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597837549877">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1597837549877" />
+    <state x="740" y="281" key="FileChooserDialogImpl" timestamp="1599319647601">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="281" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1599319647601" />
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom" timestamp="1599319648919">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1599319648919" />
+    <state width="1877" height="189" key="GridCell.Tab.0.center" timestamp="1599319648919">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1599319648919" />
+    <state width="1877" height="189" key="GridCell.Tab.0.left" timestamp="1599319648919">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1599319648919" />
+    <state width="1877" height="189" key="GridCell.Tab.0.right" timestamp="1599319648919">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="189" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1599319648919" />
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom" timestamp="1599136208229">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1599136208229" />
+    <state width="1877" height="352" key="GridCell.Tab.1.center" timestamp="1599136208228">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1599136208228" />
+    <state width="1877" height="352" key="GridCell.Tab.1.left" timestamp="1599136208228">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1599136208228" />
+    <state width="1877" height="352" key="GridCell.Tab.1.right" timestamp="1599136208228">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="352" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1599136208228" />
+    <state x="922" y="172" key="SettingsEditor" timestamp="1599319537685">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="922" y="172" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1599319537685" />
+    <state x="1136" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1599310338077">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1136" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1599310338077" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1599225753725">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1599225753725" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Sudoku$main.coverage" NAME="main Coverage Results" MODIFIED="1599310880936" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
