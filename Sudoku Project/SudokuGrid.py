@@ -32,38 +32,39 @@ class SudokuGrid:
         self.lockedNodes = []
         self.selected = None
         self.complete = False
+        self.running = False
         self.font = pygame.font.SysFont("Ariel", 24)
         self.answerThread = None
 
     def draw(self, window):
         # Draw user selected area
         if self.selected:
-            self.drawSelection(window, self.selected)
+            self.__drawSelection__(window, self.selected)
 
-        self.fillLockedNodes(window, self.lockedNodes)
+        self.__fillLockedNodes__(window, self.lockedNodes)
 
         if not self.complete:
-            self.allocateNumbers(window, self.__grid__)
+            self.__allocateNumbers__(window, self.__grid__)
         else:
-            self.allocateNumbers(window, self.answerBoard)
+            self.__allocateNumbers__(window, self.answerBoard)
 
-        self.drawGrid(window)
+        self.__drawGrid__(window)
 
     # Highlight corresponding grid square
-    def drawSelection(self, window, position):
+    def __drawSelection__(self, window, position):
         pygame.draw.rect(window, LIGHTBLUE, ((position[0] * CELL_SIZE) + gridPosition[0],
                                              (position[1] * CELL_SIZE) + gridPosition[1], CELL_SIZE, CELL_SIZE))
 
     # Allocate numbers from array onto the GUI board
-    def allocateNumbers(self, window, grid):
+    def __allocateNumbers__(self, window, grid):
         for yind, row in enumerate(grid):
             for xind, col in enumerate(row):
                 if col != 0:
                     position = [xind * CELL_SIZE + gridPosition[0], yind * CELL_SIZE + gridPosition[1]]
-                    self.addingText(window, str(col), position)
+                    self.__addingText__(window, str(col), position)
 
     # Add text to designated screen area on game board
-    def addingText(self, window, numberValue, position, colour=BLACK):
+    def __addingText__(self, window, numberValue, position, colour=BLACK):
         font = self.font.render(numberValue, False, colour)
 
         width = font.get_width()
@@ -74,7 +75,8 @@ class SudokuGrid:
 
         window.blit(font, position)
 
-    def drawGrid(self, window):
+    # Draws the sudoku board using pygame lines.
+    def __drawGrid__(self, window):
         pygame.draw.rect(window, BLACK, (gridPosition[0], gridPosition[1], WIDTH - 150, HEIGHT - 150), 2)
 
         for x in range(9):
@@ -95,65 +97,41 @@ class SudokuGrid:
                                  (gridPosition[0] + 450, gridPosition[1] + + (x * CELL_SIZE)), 2)
 
     # Colour default sudoku numbers
-    def fillLockedNodes(self, window, lockedNodes):
+    def __fillLockedNodes__(self, window, lockedNodes):
         for lockedNode in lockedNodes:
             pygame.draw.rect(window, LOCKED_COLOUR, (lockedNode[0] * CELL_SIZE + gridPosition[0],
                                                      lockedNode[1] * CELL_SIZE + gridPosition[1], CELL_SIZE,
                                                      CELL_SIZE))
 
     # Appending what nodes to be 'locked' in lockedNodes list
-    def setLockedElements(self):
+    def __setLockedElements__(self):
         for yIndex, row in enumerate(self.__grid__):
             for xIndex, num in enumerate(row):
                 if num != 0:
                     self.lockedNodes.append([xIndex, yIndex])
 
-    def highlightElement(self, coord):
-        self.selected = coord
-
-    def checkHighlighted(self):
-        if self.selected is not None:
-            return True
-        else:
-            return False
-
-    # Allocates number to sudoku square, using 'selected' position
-    def allocateValue(self, value):
-        self.__grid__[self.selected[1]][self.selected[0]] = value
-
-    # Function called from 'Solve' button in app.
-    # Tkinter is not thread safe - popupBox() needs to be called on same thread as window,
-    # so the thread is started after.
-    def startSolve(self):
-        if not self.complete:
-            self.setLockedElements()
-            if len(self.lockedNodes) < 17:
-                App.App.popupBox("Error", "Less than 17 positions have been filled.")
-            elif not self.__validGrid__(self.__grid__):
-                App.App.popupBox("Error", "Invalid number has been placed within the grid.")
-            else:
-                self.startThread()
-
     # Can't call 'sudokuSolver' directly from thread as it's recursive.
-    def solve(self):
+    def __solve__(self):
         self.__sudokuSolver__(self.__grid__)
 
     # The core backtracking algorithm to solve the puzzle.
     def __sudokuSolver__(self, grid):
         if self.__validGrid__(grid):
-            for row in range(9):
-                for col in range(9):
-                    if grid[row][col] == 0:
-                        for n in range(1, 10):
-                            if self.__possibleMove__(grid, (row, col), n):
-                                grid[row][col] = n
-                                self.__sudokuSolver__(grid)
-                                grid[row][col] = 0
-                        return
+            if not self.complete:
+                for row in range(9):
+                    for col in range(9):
+                        if grid[row][col] == 0:
+                            for n in range(1, 10):
+                                if self.__possibleMove__(grid, (row, col), n):
+                                    grid[row][col] = n
+                                    self.__sudokuSolver__(grid)
+                                    grid[row][col] = 0
+                            return
 
-            self.answerBoard = copy.deepcopy(grid)
-            self.grid = self.answerBoard
-            self.complete = True
+                self.answerBoard = copy.deepcopy(grid)
+                self.grid = self.answerBoard
+                self.complete = True
+                self.running = False
 
     # Checks a specific position meets the Sudoku critera
     def __possibleMove__(self, grid, pos, n):
@@ -187,14 +165,32 @@ class SudokuGrid:
 
         return True
 
-    def resetBoard(self):
-        for row in range(len(self.__grid__)):
-            for col in range(len(self.__grid__)):
-                self.__grid__[row][col] = 0
+    # Function called from 'Solve' button in app.
+    # Tkinter is not thread safe - popupBox() needs to be called on same thread as window,
+    # so the thread is started after.
+    def startSolve(self):
+        if not self.complete and not self.running:
+            self.__setLockedElements__()
+            if len(self.lockedNodes) < 17:
+                App.App.popupBox("Error", "Less than 17 positions have been filled.")
+                self.lockedNodes.clear()
+            elif not self.__validGrid__(self.__grid__):
+                App.App.popupBox("Error", "Invalid number has been placed within the grid.")
+                self.lockedNodes.clear()
+            else:
+                self.startThread()
+                self.running = True
+                self.selected = None
 
-        self.selected = None
-        self.lockedNodes.clear()
-        self.complete = False
+    def resetBoard(self):
+        if not self.running:
+            for row in range(len(self.__grid__)):
+                for col in range(len(self.__grid__)):
+                    self.__grid__[row][col] = 0
+
+            self.selected = None
+            self.lockedNodes.clear()
+            self.complete = False
 
     def gridSolved(self):
         if self.complete:
@@ -203,5 +199,25 @@ class SudokuGrid:
             return False
 
     def startThread(self):
-        self.answerThread = threading.Thread(target=self.solve)
+        print("Thread Started")
+        self.answerThread = threading.Thread(target=self.__solve__)
         self.answerThread.start()
+
+    def highlightElement(self, coord):
+        self.selected = coord
+
+    def checkHighlighted(self):
+        if self.selected is not None:
+            return True
+        else:
+            return False
+
+    # Allocates number to sudoku square, using 'selected' position
+    def allocateValue(self, value):
+        self.__grid__[self.selected[1]][self.selected[0]] = value
+
+    def isRunning(self):
+        if self.running:
+            return True
+
+        return False
