@@ -2,7 +2,7 @@ import pygame, sys
 import threading
 import copy
 import App
-from settings import *
+from Settings import *
 
 
 # Used to store all back-end work relating to the Sudoku board

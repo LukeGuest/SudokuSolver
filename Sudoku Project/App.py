@@ -1,5 +1,5 @@
 import tkinter as tk
-from button import *
+from Button import *
 from SudokuGrid import *
 from tkinter import messagebox
 
